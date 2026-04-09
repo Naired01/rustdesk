@@ -82,10 +82,6 @@ class _DesktopHomePageState extends State<DesktopHomePage>
     final children = <Widget>[
       if (!isOutgoingOnly) buildPresetPasswordWarning(),
       if (bind.isCustomClient())
-        Align(
-          alignment: Alignment.center,
-          child: loadPowered(context),
-        ),
       Align(
         alignment: Alignment.center,
         child: loadLogo(),
@@ -93,6 +89,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
       buildTip(context),
       if (!isOutgoingOnly) buildIDBoard(context),
       if (!isOutgoingOnly) buildPasswordBoard(context),
+      buildButtonClipboardIDPASS(context),
       FutureBuilder<Widget>(
         future: Future.value(
             Obx(() => buildHelpCards(stateGlobal.updateUrl.value))),
@@ -187,6 +184,18 @@ class _DesktopHomePageState extends State<DesktopHomePage>
     );
   }
 
+  buildButtonClipboardIDPASS(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        Clipboard.setData(ClipboardData(
+            text:
+                "Comparte este ID y contraseña a soporte para que te apoyen con tu escritorio remoto.\n ID: ${gFFI.serverModel.serverId.text}\n Contraseña: ${gFFI.serverModel.serverPasswd.text}"));
+        showToast("Datos copiados al portapapeles");
+      },
+      child: Text("Solicitar Soporte").paddingAll(4),
+    ).marginOnly(left: 16, right: 16, bottom: 20, top: 20);
+  }
+
   buildIDBoard(BuildContext context) {
     final model = gFFI.serverModel;
     return Container(
@@ -197,7 +206,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
         textBaseline: TextBaseline.alphabetic,
         children: [
           Container(
-            width: 2,
+            width: 4,
             decoration: const BoxDecoration(color: MyTheme.accent),
           ).marginOnly(top: 5),
           Expanded(
@@ -303,7 +312,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
         textBaseline: TextBaseline.alphabetic,
         children: [
           Container(
-            width: 2,
+            width: 4,
             height: 52,
             decoration: BoxDecoration(color: MyTheme.accent),
           ),
@@ -403,7 +412,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    translate("Your Desktop"),
+                    "Zentinel ProView",
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
@@ -414,7 +423,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
           ),
           if (!isOutgoingOnly)
             Text(
-              translate("desk_tip"),
+              "Agente de acceso remoto.",
               overflow: TextOverflow.clip,
               style: Theme.of(context).textTheme.bodySmall,
             ),
