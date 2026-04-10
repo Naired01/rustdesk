@@ -410,7 +410,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
             children: [
               if (!isOutgoingOnly)
                 Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.center,
                   child: Text(
                     "Zentinel ProView",
                     style: Theme.of(context).textTheme.titleLarge,
@@ -422,10 +422,13 @@ class _DesktopHomePageState extends State<DesktopHomePage>
             height: 10.0,
           ),
           if (!isOutgoingOnly)
-            Text(
-              "Agente de acceso remoto.",
-              overflow: TextOverflow.clip,
-              style: Theme.of(context).textTheme.bodySmall,
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                "Agente de acceso remoto.",
+                overflow: TextOverflow.clip,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
             ),
           if (isOutgoingOnly)
             Text(
@@ -641,14 +644,17 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                           : <Widget>[]) +
                       <Widget>[
                         if (content.isNotEmpty)
-                          Text(
-                             "Instalar Zentinel ProView",
-                            style: TextStyle(
-                                height: 1.5,
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 13),
-                          ).marginOnly(bottom: 20)
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Instalar Zentinel",
+                              style: TextStyle(
+                                  height: 1.5,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 13),
+                            ).marginOnly(bottom: 20),
+                          ),
                       ] +
                       (btnText.isNotEmpty
                           ? <Widget>[
