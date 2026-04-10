@@ -358,7 +358,7 @@ Widget buildConnectionCard(Client client) {
                 client.type_() == ClientType.terminal ||
                 client.disconnected
             ? Offstage()
-            : _PrivilegeBoard(client: client),
+            : Text(""),
         Expanded(
           child: Align(
             alignment: Alignment.bottomCenter,
@@ -645,172 +645,172 @@ class _PrivilegeBoardState extends State<_PrivilegeBoard> {
     final spacing = 10.0;
     return Container(
       width: double.infinity,
-      height: 20.0,
+      height: 160.0,
       margin: EdgeInsets.all(5.0),
       padding: EdgeInsets.all(5.0),
-      // decoration: BoxDecoration(
-      //   borderRadius: BorderRadius.circular(10.0),
-      //   color: Theme.of(context).colorScheme.background,
-      //   boxShadow: [
-      //     BoxShadow(
-      //       color: Colors.black.withOpacity(0.2),
-      //       spreadRadius: 1,
-      //       blurRadius: 1,
-      //       offset: Offset(0, 1.5),
-      //     ),
-      //   ],
-      // ),
-      // child: Column(
-      //   crossAxisAlignment: CrossAxisAlignment.center,
-      //   children: [
-      //     Text(
-      //       translate("Permissionss"),
-      //       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-      //       textAlign: TextAlign.center,
-      //     ).marginOnly(left: 4.0, bottom: 8.0),
-      //     Expanded(
-      //       child: GridView.count(
-      //         crossAxisCount: crossAxisCount,
-      //         padding: EdgeInsets.symmetric(horizontal: spacing),
-      //         mainAxisSpacing: spacing,
-      //         crossAxisSpacing: spacing,
-      //         children: client.type_() == ClientType.camera
-      //             ? [
-      //                 buildPermissionIcon(
-      //                   client.audio,
-      //                   Icons.volume_up_rounded,
-      //                   (enabled) {
-      //                     bind.cmSwitchPermission(
-      //                         connId: client.id,
-      //                         name: "audio",
-      //                         enabled: enabled);
-      //                     setState(() {
-      //                       client.audio = enabled;
-      //                     });
-      //                   },
-      //                   translate('Enable audio'),
-      //                 ),
-      //                 buildPermissionIcon(
-      //                   client.recording,
-      //                   Icons.videocam_rounded,
-      //                   (enabled) {
-      //                     bind.cmSwitchPermission(
-      //                         connId: client.id,
-      //                         name: "recording",
-      //                         enabled: enabled);
-      //                     setState(() {
-      //                       client.recording = enabled;
-      //                     });
-      //                   },
-      //                   translate('Enable recording session'),
-      //                 ),
-      //               ]
-      //             : [
-      //                 buildPermissionIcon(
-      //                   client.keyboard,
-      //                   Icons.keyboard,
-      //                   (enabled) {
-      //                     bind.cmSwitchPermission(
-      //                         connId: client.id,
-      //                         name: "keyboard",
-      //                         enabled: enabled);
-      //                     setState(() {
-      //                       client.keyboard = enabled;
-      //                     });
-      //                   },
-      //                   translate('Enable keyboard/mouse'),
-      //                 ),
-      //                 buildPermissionIcon(
-      //                   client.clipboard,
-      //                   Icons.assignment_rounded,
-      //                   (enabled) {
-      //                     bind.cmSwitchPermission(
-      //                         connId: client.id,
-      //                         name: "clipboard",
-      //                         enabled: enabled);
-      //                     setState(() {
-      //                       client.clipboard = enabled;
-      //                     });
-      //                   },
-      //                   translate('Enable clipboard'),
-      //                 ),
-      //                 buildPermissionIcon(
-      //                   client.audio,
-      //                   Icons.volume_up_rounded,
-      //                   (enabled) {
-      //                     bind.cmSwitchPermission(
-      //                         connId: client.id,
-      //                         name: "audio",
-      //                         enabled: enabled);
-      //                     setState(() {
-      //                       client.audio = enabled;
-      //                     });
-      //                   },
-      //                   translate('Enable audio'),
-      //                 ),
-      //                 buildPermissionIcon(
-      //                   client.file,
-      //                   Icons.upload_file_rounded,
-      //                   (enabled) {
-      //                     bind.cmSwitchPermission(
-      //                         connId: client.id,
-      //                         name: "file",
-      //                         enabled: enabled);
-      //                     setState(() {
-      //                       client.file = enabled;
-      //                     });
-      //                   },
-      //                   translate('Enable file copy and paste'),
-      //                 ),
-      //                 buildPermissionIcon(
-      //                   client.restart,
-      //                   Icons.restart_alt_rounded,
-      //                   (enabled) {
-      //                     bind.cmSwitchPermission(
-      //                         connId: client.id,
-      //                         name: "restart",
-      //                         enabled: enabled);
-      //                     setState(() {
-      //                       client.restart = enabled;
-      //                     });
-      //                   },
-      //                   translate('Enable remote restart'),
-      //                 ),
-      //                 buildPermissionIcon(
-      //                   client.recording,
-      //                   Icons.videocam_rounded,
-      //                   (enabled) {
-      //                     bind.cmSwitchPermission(
-      //                         connId: client.id,
-      //                         name: "recording",
-      //                         enabled: enabled);
-      //                     setState(() {
-      //                       client.recording = enabled;
-      //                     });
-      //                   },
-      //                   translate('Enable recording session'),
-      //                 ),
-      //                 // only windows support block input
-      //                 if (isWindows)
-      //                   buildPermissionIcon(
-      //                     client.blockInput,
-      //                     Icons.block,
-      //                     (enabled) {
-      //                       bind.cmSwitchPermission(
-      //                           connId: client.id,
-      //                           name: "block_input",
-      //                           enabled: enabled);
-      //                       setState(() {
-      //                         client.blockInput = enabled;
-      //                       });
-      //                     },
-      //                     translate('Enable blocking user input'),
-      //                   )
-      //               ],
-      //       ),
-      //     ),
-      //   ],
-      // ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Theme.of(context).colorScheme.background,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            spreadRadius: 1,
+            blurRadius: 1,
+            offset: Offset(0, 1.5),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            translate("Permissionss"),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ).marginOnly(left: 4.0, bottom: 8.0),
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: crossAxisCount,
+              padding: EdgeInsets.symmetric(horizontal: spacing),
+              mainAxisSpacing: spacing,
+              crossAxisSpacing: spacing,
+              children: client.type_() == ClientType.camera
+                  ? [
+                      buildPermissionIcon(
+                        client.audio,
+                        Icons.volume_up_rounded,
+                        (enabled) {
+                          bind.cmSwitchPermission(
+                              connId: client.id,
+                              name: "audio",
+                              enabled: enabled);
+                          setState(() {
+                            client.audio = enabled;
+                          });
+                        },
+                        translate('Enable audio'),
+                      ),
+                      buildPermissionIcon(
+                        client.recording,
+                        Icons.videocam_rounded,
+                        (enabled) {
+                          bind.cmSwitchPermission(
+                              connId: client.id,
+                              name: "recording",
+                              enabled: enabled);
+                          setState(() {
+                            client.recording = enabled;
+                          });
+                        },
+                        translate('Enable recording session'),
+                      ),
+                    ]
+                  : [
+                      buildPermissionIcon(
+                        client.keyboard,
+                        Icons.keyboard,
+                        (enabled) {
+                          bind.cmSwitchPermission(
+                              connId: client.id,
+                              name: "keyboard",
+                              enabled: enabled);
+                          setState(() {
+                            client.keyboard = enabled;
+                          });
+                        },
+                        translate('Enable keyboard/mouse'),
+                      ),
+                      buildPermissionIcon(
+                        client.clipboard,
+                        Icons.assignment_rounded,
+                        (enabled) {
+                          bind.cmSwitchPermission(
+                              connId: client.id,
+                              name: "clipboard",
+                              enabled: enabled);
+                          setState(() {
+                            client.clipboard = enabled;
+                          });
+                        },
+                        translate('Enable clipboard'),
+                      ),
+                      buildPermissionIcon(
+                        client.audio,
+                        Icons.volume_up_rounded,
+                        (enabled) {
+                          bind.cmSwitchPermission(
+                              connId: client.id,
+                              name: "audio",
+                              enabled: enabled);
+                          setState(() {
+                            client.audio = enabled;
+                          });
+                        },
+                        translate('Enable audio'),
+                      ),
+                      buildPermissionIcon(
+                        client.file,
+                        Icons.upload_file_rounded,
+                        (enabled) {
+                          bind.cmSwitchPermission(
+                              connId: client.id,
+                              name: "file",
+                              enabled: enabled);
+                          setState(() {
+                            client.file = enabled;
+                          });
+                        },
+                        translate('Enable file copy and paste'),
+                      ),
+                      buildPermissionIcon(
+                        client.restart,
+                        Icons.restart_alt_rounded,
+                        (enabled) {
+                          bind.cmSwitchPermission(
+                              connId: client.id,
+                              name: "restart",
+                              enabled: enabled);
+                          setState(() {
+                            client.restart = enabled;
+                          });
+                        },
+                        translate('Enable remote restart'),
+                      ),
+                      buildPermissionIcon(
+                        client.recording,
+                        Icons.videocam_rounded,
+                        (enabled) {
+                          bind.cmSwitchPermission(
+                              connId: client.id,
+                              name: "recording",
+                              enabled: enabled);
+                          setState(() {
+                            client.recording = enabled;
+                          });
+                        },
+                        translate('Enable recording session'),
+                      ),
+                      // only windows support block input
+                      if (isWindows)
+                        buildPermissionIcon(
+                          client.blockInput,
+                          Icons.block,
+                          (enabled) {
+                            bind.cmSwitchPermission(
+                                connId: client.id,
+                                name: "block_input",
+                                enabled: enabled);
+                            setState(() {
+                              client.blockInput = enabled;
+                            });
+                          },
+                          translate('Enable blocking user input'),
+                        )
+                    ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
