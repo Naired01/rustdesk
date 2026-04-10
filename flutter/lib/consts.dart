@@ -317,8 +317,8 @@ extension StringExtension on String {
   String get nonBreaking => replaceAll(' ', String.fromCharCode($nbsp));
 }
 
-const Size kConnectionManagerWindowSizeClosedChat = Size(300, 490);
-const Size kConnectionManagerWindowSizeOpenChat = Size(700, 490);
+const Size kConnectionManagerWindowSizeClosedChat = Size(300, 350);
+const Size kConnectionManagerWindowSizeOpenChat = Size(700, 420);
 // Tabbar transition duration, now we remove the duration
 const Duration kTabTransitionDuration = Duration.zero;
 const double kEmptyMarginTop = 50;
