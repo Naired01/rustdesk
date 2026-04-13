@@ -457,7 +457,6 @@ class _GeneralState extends State<_General> {
     if (bind.isOutgoingOnly()) {
       return const Offstage();
     }
-    return const Offstage();
 
     return _Card(title: 'Service', children: [
       Obx(() => _Button(serviceStop.value ? 'Start' : 'Stop', () {
