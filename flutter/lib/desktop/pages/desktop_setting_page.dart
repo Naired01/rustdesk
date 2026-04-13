@@ -1234,7 +1234,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
           kOptionKeepAwakeDuringIncomingSessions,
           reverse: false, enabled: enabled),
       if (bind.mainIsInstalled())
-        _OptionCheckBox(context, 'Permitir la conexión solo si la ventana esta abierta',
+        _OptionCheckBox(context, 'allow-only-conn-window-open-tip',
             'allow-only-conn-window-open',
             reverse: false, enabled: enabled),
       if (bind.mainIsInstalled() && !isUnlockPinDisabled()) unlockPin()
